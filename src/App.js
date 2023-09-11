@@ -1,3 +1,4 @@
+import color from 'color';
 import randomColor from 'randomcolor';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -5,13 +6,12 @@ import styled from 'styled-components';
 export default function App() {
   const initialColor = randomColor();
   const [generatedColor, setGeneratedColor] = useState(initialColor);
+  const isLight = color(generatedColor).isLight();
 
-  {
-    /* variables related to main div
+  //  const colorCheck = console.log(color.isLight());
 
-
-    */
-  }
+  /* variables related to main div
+   */
 
   const Container = styled.div`
     text-align: center;
@@ -32,16 +32,6 @@ export default function App() {
     background-color: ${generatedColor};
   `;
 
-  const ColorNameDiv = styled.div`
-    font-family: 'andale mono', monospace;
-    font-size: 1.8em;
-    font-weight: 900;
-    padding: 0.3em;
-    color: ${generatedColor};
-    background-color: #fff;
-    border-radius: 3px;
-  `;
-
   {
     /* variables related to button */
   }
@@ -53,15 +43,37 @@ export default function App() {
     background-color: white;
     border-radius: 3px;
     border: solid 1px #e0e1dd;
+    &:hover {
+      color: #e0e1dd;
+      background-color: #778da9;
+      cursor: pointer;
+    }
   `;
 
   return (
     <>
       <Container>
         <ColorDiv>
-          <ColorNameDiv>{generatedColor}</ColorNameDiv>
+          <div
+            style={{
+              fontFamily: 'andale mono',
+              fontSize: '1.8em',
+              fontWeight: '900',
+              padding: '0.3em',
+              color: isLight ? '#000000' : '#ffffff',
+            }}
+          >
+            {generatedColor}
+          </div>
         </ColorDiv>
-        <Button>Generate</Button>
+        <Button
+          onClick={() => {
+            const newColor = randomColor();
+            setGeneratedColor(newColor);
+          }}
+        >
+          Generate
+        </Button>
       </Container>
     </>
   );
