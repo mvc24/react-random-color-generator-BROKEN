@@ -32,9 +32,6 @@ export default function App() {
     background-color: ${generatedColor};
   `;
 
-  {
-    /* variables related to button */
-  }
   const Button = styled.button`
     font-family: 'andale mono', monospace;
     font-size: 1.2em;
@@ -51,30 +48,28 @@ export default function App() {
   `;
 
   return (
-    <>
-      <Container>
-        <ColorDiv>
-          <div
-            style={{
-              fontFamily: 'andale mono',
-              fontSize: '1.8em',
-              fontWeight: '900',
-              padding: '0.3em',
-              color: isLight ? '#000000' : '#ffffff',
-            }}
-          >
-            {generatedColor}
-          </div>
-        </ColorDiv>
-        <Button
-          onClick={() => {
-            const newColor = randomColor();
-            setGeneratedColor(newColor);
+    <Container>
+      <ColorDiv>
+        <div
+          style={{
+            fontFamily: 'andale mono',
+            fontSize: '1.8em',
+            fontWeight: '900',
+            padding: '0.3em',
+            color: isLight ? '#000000' : '#ffffff',
           }}
         >
-          Generate
-        </Button>
-      </Container>
-    </>
+          {generatedColor}
+        </div>
+      </ColorDiv>
+      <Button
+        onClick={() => {
+          const newColor = randomColor();
+          setGeneratedColor(newColor);
+        }}
+      >
+        Generate
+      </Button>
+    </Container>
   );
 }
