@@ -1,51 +1,13 @@
 import color from 'color';
 import randomColor from 'randomcolor';
 import { useState } from 'react';
-import styled from 'styled-components';
+import { Button } from './components/Button';
+import { ColorDiv, Container } from './components/divs';
 
 export default function App() {
   const initialColor = randomColor();
   const [generatedColor, setGeneratedColor] = useState(initialColor);
   const isLight = color(generatedColor).isLight();
-
-  //  const colorCheck = console.log(color.isLight());
-
-  /* variables related to main div
-   */
-
-  const Container = styled.div`
-    text-align: center;
-    margin: auto;
-    margin-top: 3em;
-    padding: 0.6em;
-  `;
-
-  const ColorDiv = styled.div`
-    width: 300px;
-    height: 200px;
-    border-radius: 5px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.6em;
-    background-color: ${generatedColor};
-  `;
-
-  const Button = styled.button`
-    font-family: 'andale mono', monospace;
-    font-size: 1.2em;
-    padding: 0.6em;
-    color: #1b263b;
-    background-color: white;
-    border-radius: 3px;
-    border: solid 1px #e0e1dd;
-    &:hover {
-      color: #e0e1dd;
-      background-color: #778da9;
-      cursor: pointer;
-    }
-  `;
 
   return (
     <Container>
