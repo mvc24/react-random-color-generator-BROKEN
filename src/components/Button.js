@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyles, css } from 'styled-components';
 
 export const Button = styled.button`
   font-family: 'andale mono', monospace;

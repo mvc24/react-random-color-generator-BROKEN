@@ -1,8 +1,10 @@
 import color from 'color';
 import randomColor from 'randomcolor';
 import { useState } from 'react';
+import styled from 'styled-components';
 import { Button } from './components/Button';
-import { ColorDiv, Container } from './components/divs';
+import { ColorDiv } from './components/ColorDiv';
+import { Container } from './components/Container';
 
 export default function App() {
   const initialColor = randomColor();
@@ -11,7 +13,7 @@ export default function App() {
 
   return (
     <Container>
-      <ColorDiv>
+      <ColorDiv as="styled.div">
         <div
           style={{
             fontFamily: 'andale mono',
